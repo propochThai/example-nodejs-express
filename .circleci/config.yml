@@ -27,5 +27,5 @@ job:
                   docker push  propoch/example-nodejs-circle:latest
                   docker push propoch/example-nodejs-circle:${CIRCLE_SHA1}
       -run: echo Done
-      
+
 
