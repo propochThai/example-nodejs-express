@@ -21,7 +21,7 @@ jobs:
       - run:
           name: "Build docker image and push to docker hub"
           command: | 
-                  cp Dockefile.production Dockerfile
+                  cp Dockerfile.production Dockerfile
                   docker build -t propoch/example-nodejs-circle:latest .
                   docker build -t propoch/example-nodejs-circle:${CIRCLE_SHA1} .
                   docker push  propoch/example-nodejs-circle:latest
