@@ -26,7 +26,7 @@ jobs:
                   docker build -t propoch/example-nodejs-circle:${CIRCLE_SHA1} .
                   docker push  propoch/example-nodejs-circle:latest
                   docker push propoch/example-nodejs-circle:${CIRCLE_SHA1}
-      -run:
+      - run:
           name: "Call to rancher"
           command:
                   docker run --rm -it \
