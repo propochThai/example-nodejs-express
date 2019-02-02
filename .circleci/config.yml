@@ -1,8 +1,7 @@
-version: 2
-jobs:
+job:
   build:
     docker:
-      - image: circleci/node:8.11.1-stretch
+      - image: circleci/node:8.11.1-stetch
     working_directory: ~/repo
     steps:
       - checkout
@@ -16,4 +15,17 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: echo Done
+      - run: npm test
+      - setup_remote_docker
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - run:
+          name: "Build docker image and push to docker hub"
+          command: | 
+                  cp Dockefile.production Dockerfile
+                  docker build -t propoch/example-nodejs-circle:latest .
+                  docker build -t propoch/example-nodejs-circle:${CIRCLE_SHA1} .
+                  docker push  propoch/example-nodejs-circle:latest
+                  docker push propoch/example-nodejs-circle:${CIRCLE_SHA1}
+      -run: echo Done
+      
+

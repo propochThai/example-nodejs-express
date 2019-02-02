@@ -4,7 +4,7 @@
 ```
 npm install
 npm start
-test2 a
+upload to docker
 ```
 
 ## Path to start program 
