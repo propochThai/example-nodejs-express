@@ -4,6 +4,7 @@
 ```
 npm install
 npm start
+test2 a
 ```
 
 ## Path to start program 
