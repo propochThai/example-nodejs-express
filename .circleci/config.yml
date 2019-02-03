@@ -38,6 +38,11 @@ jobs:
       - image: propoch/example-nodejs-circle:latest
     steps:
       - run: npm test
+  ship:
+    docker:
+      - image: propoch/example-nodejs-circle:latest
+    steps:
+      - run: npm test
   deploy:
     docker:
       - image: propoch/example-nodejs-circle:latest
