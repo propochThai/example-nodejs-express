@@ -53,6 +53,7 @@ jobs:
   deploy:
     docker:
       - image: propoch/example-nodejs-circle:latest
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
