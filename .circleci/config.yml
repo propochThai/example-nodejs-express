@@ -36,7 +36,7 @@ jobs:
                   fi
   deploy:
     docker:
-      - image: docker:propoch/example-nodejs-circle:lates
+      - image: docker:propoch/example-nodejs-circle:latest
     steps:
       - run:
           name: "Call to rancher"
