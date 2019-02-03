@@ -57,6 +57,8 @@ jobs:
                     --batch_size 4 --start_first \
                     --auto_complete --timeout 600 \
                     \
+                  else
+                    echo "This is ${CIRCLE_BRANCH}"
                   fi
 
 
