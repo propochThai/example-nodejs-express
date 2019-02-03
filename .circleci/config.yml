@@ -35,6 +35,8 @@ jobs:
                     echo "This is ${CIRCLE_BRANCH}"
                   fi
   deploy:
+    requires:
+      - build
     docker:
       - image: propoch/example-nodejs-circle:latest
     steps:
