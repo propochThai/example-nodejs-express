@@ -46,6 +46,7 @@ jobs:
                     --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
                     --batch_size 4 --start_first \
                     --auto_complete --timeout 600 \
+                    \
                   elif [ "${CIRCLE_BRANCH}" == "staging" ]; then 
                     docker run --rm -it \
                     -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
@@ -55,6 +56,7 @@ jobs:
                     --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
                     --batch_size 4 --start_first \
                     --auto_complete --timeout 600 \
+                    \
                   fi
 
 
