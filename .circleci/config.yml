@@ -41,7 +41,7 @@ jobs:
                   -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
                   -e CATTLE_SECRET_KEY="$CATTLE_SECRET_KEY" \
                   -e CATTLE_URL="$CATTLE_URL" \
-                  etlweather/gaucho upgrade $RANCHER_EXAMPLE_NODEJS \
+                  etlweather/gaucho upgrade 1s19 \
                   --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
                   --batch_size 4 --start_first \
                   --auto_complete --timeout 600 \
