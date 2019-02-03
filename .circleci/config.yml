@@ -15,7 +15,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
       - setup_remote_docker
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - run:
@@ -34,6 +33,12 @@ jobs:
                   else
                     echo "This is ${CIRCLE_BRANCH}"
                   fi
+  test:
+    - image: propoch/example-nodejs-circle:latest
+    working_directory: ~/repo
+      steps:
+      - checkout
+      - run: npm test
   ship:
     docker:
       - image: propoch/example-nodejs-circle:latest
@@ -53,12 +58,16 @@ jobs:
                   --auto_complete --timeout 600 \            
 workflows:
   version: 2
-  build_and_ship:
+  build_and_test_ship:
     jobs:
       - build
+      - test:
+        requires:
+          - build
       - ship:
         requires:
           - build
+          - test
 
 
 
