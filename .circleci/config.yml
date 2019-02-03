@@ -38,27 +38,27 @@ jobs:
           name: "Call to rancher"
           command: |
                   if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                    docker run --rm -it \
-                    -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
-                    -e CATTLE_SECRET_KEY="$CATTLE_SECRET_KEY" \
-                    -e CATTLE_URL="$CATTLE_URL" \
-                    etlweather/gaucho upgrade 1s17 \
-                    --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
-                    --batch_size 4 --start_first \
-                    --auto_complete --timeout 600 \
-                    \
+                      docker run --rm -it \
+                      -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
+                      -e CATTLE_SECRET_KEY="$CATTLE_SECRET_KEY" \
+                      -e CATTLE_URL="$CATTLE_URL" \
+                      etlweather/gaucho upgrade 1s17 \
+                      --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
+                      --batch_size 4 --start_first \
+                      --auto_complete --timeout 600 \
+                      \
                   elif [ "${CIRCLE_BRANCH}" == "staging" ]; then 
-                    docker run --rm -it \
-                    -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
-                    -e CATTLE_SECRET_KEY="$CATTLE_SECRET_KEY" \
-                    -e CATTLE_URL="$CATTLE_URL" \
-                    etlweather/gaucho upgrade 1s19 \
-                    --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
-                    --batch_size 4 --start_first \
-                    --auto_complete --timeout 600 \
-                    \
+                      docker run --rm -it \
+                      -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
+                      -e CATTLE_SECRET_KEY="$CATTLE_SECRET_KEY" \
+                      -e CATTLE_URL="$CATTLE_URL" \
+                      etlweather/gaucho upgrade 1s19 \
+                      --imageUuid 'docker:propoch/example-nodejs-circle:latest' \
+                      --batch_size 4 --start_first \
+                      --auto_complete --timeout 600 \
+                      \
                   else
-                    echo "This is ${CIRCLE_BRANCH}"
+                      echo "This is ${CIRCLE_BRANCH}"
                   fi
 
 
