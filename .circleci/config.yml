@@ -66,17 +66,16 @@ workflows:
     jobs:
       - build
       - test:
-        requires:
-          - build
+          requires:
+            - build
       - ship:
-        requires:
-          - build
-          - test
+          requires:
+            - build
+            - test
       - deploy:
-        requires:
-          - build
-          - test
-          - ship
-
+          requires:
+            - build
+            - test
+            - ship
 
 
