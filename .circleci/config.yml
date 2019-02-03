@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - run: npm test
-  ship:
+  deploy:
     docker:
       - image: propoch/example-nodejs-circle:latest
     steps:
@@ -59,13 +59,13 @@ jobs:
                   --auto_complete --timeout 600 \            
 workflows:
   version: 2
-  build-test-and-ship:
+  build-test-and-deploy:
     jobs:
       - build
       - test:
         requires:
           - build
-      - ship:
+      - deploy:
         requires:
           - build
           - test
