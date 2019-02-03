@@ -34,7 +34,8 @@ jobs:
                     echo "This is ${CIRCLE_BRANCH}"
                   fi
   test:
-    - image: propoch/example-nodejs-circle:latest
+    docker:
+      - image: propoch/example-nodejs-circle:latest
     working_directory: ~/repo
       steps:
       - checkout
