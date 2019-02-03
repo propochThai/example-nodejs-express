@@ -34,7 +34,7 @@ jobs:
                   else
                     echo "This is ${CIRCLE_BRANCH}"
                   fi
-  deploy:
+  ship:
     docker:
       - image: propoch/example-nodejs-circle:latest
     steps:
@@ -53,10 +53,10 @@ jobs:
                   --auto_complete --timeout 600 \            
 workflows:
   version: 2
-  build_and_deploy:
+  build_and_ship:
     jobs:
       - build
-      - deploy:
+      - ship:
         requires:
           - build
 
