@@ -50,11 +50,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
-  ship:
-    docker:
-      - image: propoch/example-nodejs-circle:latest
-    steps:
-      - run: npm test
   deploy:
     docker:
       - image: propoch/example-nodejs-circle:latest
@@ -80,14 +75,9 @@ workflows:
       - test:
           requires:
             - build
-      - ship:
-          requires:
-            - build
-            - test
       - deploy:
           requires:
             - build
             - test
-            - ship
 
 
